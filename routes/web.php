@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ConferenceController;
+use App\Http\Controllers\ConferenceFavouriteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TalkController;
 use App\Models\User;
@@ -30,6 +31,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('conferences', [ConferenceController::class, 'index'])->name('conferences.index');
     Route::get('conferences/{conference}', [ConferenceController::class, 'show'])->name('conferences.show');
+
+    Route::post('conferences/{conference}/favourites', [ConferenceFavouriteController::class, 'store'])->name('conferences.favourite');
+    Route::delete('conferences/{conference}/favourites', [ConferenceFavouriteController::class, 'destroy'])->name('conferences.unfavourite');
 });
 
 require __DIR__ . '/auth.php';
