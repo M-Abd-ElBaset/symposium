@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ConferenceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TalkController;
 use App\Models\User;
@@ -26,6 +27,9 @@ Route::middleware('auth')->group(function () {
     Route::get('talks/{talk}/edit', [TalkController::class, 'edit'])->name('talks.edit');
     Route::delete('talks/{talk}', [TalkController::class, 'destroy'])->name('talks.destroy');
     Route::post('talks', [TalkController::class, 'store'])->name('talks.store');
+
+    Route::get('conferences', [ConferenceController::class, 'index'])->name('conferences.index');
+    Route::get('conferences/{conference}', [ConferenceController::class, 'show'])->name('conferences.show');
 });
 
 require __DIR__ . '/auth.php';
