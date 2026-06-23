@@ -1,0 +1,10 @@
+_format_version: "3.0"
+_transform: true
+
+services:
+  - name: symposium-service
+    url: http://host.docker.internal:9000
+    routes:
+      - name: main-route
+        paths:
+          - /
